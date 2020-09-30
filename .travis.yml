@@ -1,0 +1,21 @@
+# https://travis-ci.org/#!/phlax/protoc-gen-jsonschema
+
+dist: focal
+
+addons:
+  apt:
+    packages:
+      - wget
+      - pkg-config
+
+before_install:
+  - wget https://github.com/bazelbuild/bazel/releases/download/4.0.0/bazel_4.0.0-linux-x86_64.deb
+  - sudo dpkg -i bazel_4.0.0-linux-x86_64.deb
+
+script:
+  - echo "testing protoc-gen-jsonschema with bazel"
+  - pwd
+  - ls
+  - bazel build //:run-protoc-test
+  - bazel run //:run-protoc-test
+  - ls

@@ -135,7 +135,6 @@ func (c *Converter) convertFile(file *descriptor.FileDescriptorProto) ([]*plugin
 	if !genSpecificMessages && len(file.GetMessageType()) > 1 {
 		c.logger.WithField("schemas", len(file.GetMessageType())).WithField("proto_filename", protoFileName).Debug("protoc-gen-jsonschema will create multiple MESSAGE schemas from one proto file")
 	}
-
 	if len(file.GetEnumType()) > 1 {
 		c.logger.WithField("schemas", len(file.GetMessageType())).WithField("proto_filename", protoFileName).Debug("protoc-gen-jsonschema will create multiple ENUM schemas from one proto file")
 	}
@@ -252,7 +251,9 @@ func (c *Converter) generateSchemaFilename(file *descriptor.FileDescriptorProto,
 	if c.PrefixSchemaFilesWithPackage {
 		return fmt.Sprintf("%s/%s.jsonschema", file.GetPackage(), protoName)
 	}
-	return fmt.Sprintf("%s.jsonschema", protoName)
+	fileName := fmt.Sprintf("%s.jsonschema", file.GetName())
+	// c.logger.WithField("proto_filename", fileName).Warn("GENERATE FILENAME")
+	return fileName
 }
 
 func contains(haystack []string, needle string) bool {
