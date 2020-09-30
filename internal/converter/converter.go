@@ -132,10 +132,9 @@ func (c *Converter) convertFile(file *descriptor.FileDescriptorProto) ([]*plugin
 	genSpecificMessages := len(c.messageTargets) > 0
 
 	// Warn about multiple messages / enums in files:
-	if !genSpecificMessages && len(file.GetMessageType()) > 1 {
-		c.logger.WithField("schemas", len(file.GetMessageType())).WithField("proto_filename", protoFileName).Warn("protoc-gen-jsonschema will create multiple MESSAGE schemas from one proto file")
-	}
-
+	// if !genSpecificMessages && len(file.GetMessageType()) > 1 {
+	//	c.logger.WithField("schemas", len(file.GetMessageType())).WithField("proto_filename", protoFileName).Warn("protoc-gen-jsonschema will create multiple MESSAGE schemas from one proto file")
+	// }
 	if len(file.GetEnumType()) > 1 {
 		c.logger.WithField("schemas", len(file.GetMessageType())).WithField("proto_filename", protoFileName).Warn("protoc-gen-jsonschema will create multiple ENUM schemas from one proto file")
 	}
@@ -177,6 +176,10 @@ func (c *Converter) convertFile(file *descriptor.FileDescriptorProto) ([]*plugin
 		for _, msg := range file.GetMessageType() {
 			// skip if we are only generating schema for specific messages
 			if genSpecificMessages && !contains(c.messageTargets, msg.GetName()) {
+				continue
+			}
+
+			if i > 0 {
 				continue
 			}
 
@@ -252,7 +255,9 @@ func (c *Converter) generateSchemaFilename(file *descriptor.FileDescriptorProto,
 	if c.PrefixSchemaFilesWithPackage {
 		return fmt.Sprintf("%s/%s.jsonschema", file.GetPackage(), protoName)
 	}
-	return fmt.Sprintf("%s.jsonschema", protoName)
+	fileName := fmt.Sprintf("%s.jsonschema", file.GetName())
+	// c.logger.WithField("proto_filename", fileName).Warn("GENERATE FILENAME")
+	return fileName
 }
 
 func contains(haystack []string, needle string) bool {
