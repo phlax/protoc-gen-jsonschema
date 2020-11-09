@@ -14,5 +14,6 @@ go_library(
     visibility = ["//visibility:private"],
     deps = [
         "@com_github_golang_protobuf//proto:go_default_library",
+        "@com_github_golang_protobuf//proto-gen-go/plugin:go_default_library",
     ],
 )
