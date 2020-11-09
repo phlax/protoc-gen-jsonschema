@@ -12,5 +12,7 @@ go_library(
     srcs = ["cmd/protoc-gen-jsonschema/main.go"],
     importpath = "github.com/envoyproxy/protoc-gen-validate",
     visibility = ["//visibility:private"],
-    deps = [],
+    deps = [
+        "@com_github_golang_protobuf//proto:go_default_library",
+    ],
 )
