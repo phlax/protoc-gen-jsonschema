@@ -39,3 +39,9 @@ def pgj_dependency_imports():
         commit = "a07d3b89baaba9e4af38daf4871d0db4b2bcd983",
         importpath = "github.com/iancoleman/orderedmap",
     )
+
+    go_repository(
+        name = "com_github_xeipuuv_gojsonschema",
+        commit = "b076d39a02e5015af0a2a96636e4cc479ecd9f45",
+        importpath = "github.com/xeipuuv/gojsonschema",
+    )
