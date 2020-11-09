@@ -22,10 +22,14 @@ def pgj_dependency_imports():
     rules_proto_dependencies()
     rules_proto_toolchains()
 
-    print("LOADING logrus")
     go_repository(
         name = "com_github_sirupsen_logrus",
         commit = "d131c24e23baaa812461202af6d7cfa388e2d292",
         importpath = "github.com/sirupsen/logrus",
     )
-    print("LOADED logrus")
+
+    go_repository(
+        name = "com_github_alecthomas_jsonschema",
+        commit = "71f438968921b11c960edd17153cfe882b18b153",
+        importpath = "github.com/alecthomas/jsonschema",
+    )
