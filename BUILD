@@ -16,6 +16,6 @@ go_library(
         "@com_github_golang_protobuf//proto:go_default_library",
         "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
         "@com_github_sirupsen_logrus//:go_default_library",
-        "//internal_converter:go_default_library"
+        "//internal/converter:go_default_library"
     ],
 )
