@@ -27,3 +27,4 @@ def pgj_dependency_imports():
         name = "com_github_sirupsen_logrus",
         importpath = "github.com/sirupsen/logrus",
     )
+    print("LOADED logrus")
