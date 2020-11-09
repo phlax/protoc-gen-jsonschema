@@ -25,6 +25,7 @@ def pgj_dependency_imports():
     print("LOADING logrus")
     go_repository(
         name = "com_github_sirupsen_logrus",
+        commit = "d131c24e23baaa812461202af6d7cfa388e2d292",
         importpath = "github.com/sirupsen/logrus",
     )
     print("LOADED logrus")
