@@ -13,6 +13,7 @@ go_library(
         "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
         "@com_github_golang_protobuf//protoc-gen-go/descriptor:go_default_library",
         "@com_github_sirupsen_logrus//:go_default_library",
+        "@com_github_xeipuuv_gojsonreference//:go_default_library",
         "@com_github_xeipuuv_gojsonschema//:go_default_library",
         "@com_github_iancoleman_orderedmap//:go_default_library",
         "@com_github_alecthomas_jsonschema//:go_default_library",
