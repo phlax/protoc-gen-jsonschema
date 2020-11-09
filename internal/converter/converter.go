@@ -172,10 +172,14 @@ func (c *Converter) convertFile(file *descriptor.FileDescriptorProto) ([]*plugin
 		if !ok {
 			return nil, fmt.Errorf("no such package found: %s", file.GetPackage())
 		}
-		for _, msg := range file.GetMessageType() {
+		for i, msg := range file.GetMessageType() {
 
 			// skip if we are only generating schema for specific messages
 			if genSpecificMessages && !contains(c.messageTargets, msg.GetName()) {
+				continue
+			}
+
+			if i > 1 {
 				continue
 			}
 
