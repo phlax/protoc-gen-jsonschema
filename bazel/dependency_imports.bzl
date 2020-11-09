@@ -22,8 +22,8 @@ def pgj_dependency_imports():
     rules_proto_dependencies()
     rules_proto_toolchains()
 
-    if not native.existing_rule("com_github_sirupsen_logrus"):
-        go_repository(
-            name = "com_github_sirupsen_logrus",
-            importpath = "github.com/sirupsen/logrus",
-        )
+    print("LOADING logrus")
+    go_repository(
+        name = "com_github_sirupsen_logrus",
+        importpath = "github.com/sirupsen/logrus",
+    )
