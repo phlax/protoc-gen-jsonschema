@@ -33,3 +33,9 @@ def pgj_dependency_imports():
         commit = "71f438968921b11c960edd17153cfe882b18b153",
         importpath = "github.com/alecthomas/jsonschema",
     )
+
+    go_repository(
+        name = "com_github_iancoleman_orderedmap",
+        commit = "a07d3b89baaba9e4af38daf4871d0db4b2bcd983",
+        importpath = "github.com/iancoleman/orderedmap",
+    )
