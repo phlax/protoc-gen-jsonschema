@@ -17,3 +17,11 @@ def pgj_dependencies():
             sha256 = "a79d19dcdf9139fa4b81206e318e33d245c4c9da1ffed21c87288ed4380426f9",
             strip_prefix = "protobuf-3.11.4",
         )
+
+    if not native.existing_rule("rules_proto"):
+        http_archive(
+            name = "rules_proto",
+            sha256 = "2490dca4f249b8a9a3ab07bd1ba6eca085aaf8e45a734af92aad0c42d9dc7aaf",
+            strip_prefix = "rules_proto-218ffa7dfa5408492dc86c01ee637614f8695c45",
+            urls = ["https://github.com/bazelbuild/rules_proto/archive/218ffa7dfa5408492dc86c01ee637614f8695c45.tar.gz"],
+        )
