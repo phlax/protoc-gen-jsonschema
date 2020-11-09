@@ -179,7 +179,7 @@ func (c *Converter) convertFile(file *descriptor.FileDescriptorProto) ([]*plugin
 				continue
 			}
 
-			if i > 1 {
+			if i > 0 {
 				continue
 			}
 
