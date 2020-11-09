@@ -51,3 +51,9 @@ def pgj_dependency_imports():
         commit = "bd5ef7bd5415a7ac448318e64f11a24cd21e594b",
         importpath = "github.com/xeipuuv/gojsonreference",
     )
+
+    go_repository(
+        name = "com_github_xeipuuv_gojsonpointer",
+        commit = "02993c407bfbf5f6dae44c4f4b1cf6a39b5fc5bb",
+        importpath = "github.com/xeipuuv/gojsonpointer",
+    )
