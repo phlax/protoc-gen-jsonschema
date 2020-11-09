@@ -10,7 +10,7 @@ go_binary(
 go_library(
     name = "go_default_library",
     srcs = ["cmd/protoc-gen-jsonschema/main.go"],
-    importpath = "github.com/envoyproxy/protoc-gen-validate",
+    importpath = "github.com/chrusty/protoc-gen-jsonschema",
     visibility = ["//visibility:private"],
     deps = [
         "@com_github_golang_protobuf//proto:go_default_library",
