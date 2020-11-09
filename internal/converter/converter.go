@@ -246,7 +246,9 @@ func (c *Converter) generateSchemaFilename(file *descriptor.FileDescriptorProto,
 	if c.PrefixSchemaFilesWithPackage {
 		return fmt.Sprintf("%s/%s.jsonschema", file.GetPackage(), protoName)
 	}
-	return fmt.Sprintf("%s.jsonschema", protoName)
+	fileName =: fmt.Sprintf("%s.jsonschema", protoName)
+	c.logger.WithField("package", file.getPackage()).WithField("proto_filename", fileName).Warn("GENERATE FILENAME")
+	return fileName
 }
 
 func contains(haystack []string, needle string) bool {
