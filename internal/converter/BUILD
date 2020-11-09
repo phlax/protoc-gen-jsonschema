@@ -9,5 +9,8 @@ go_library(
     ],
     importpath = "github.com/chrusty/protoc-gen-jsonschema/internal/converter",
     visibility = ["//visibility:public"],
-    deps = [],
+    deps = [
+        "@com_github_golang_protobuf//proto:go_default_library",
+        "@com_github_golang_protobuf//protoc-gen-go/plugin:go_default_library",
+    ],
 )
