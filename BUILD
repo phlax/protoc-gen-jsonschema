@@ -6,3 +6,11 @@ go_binary(
     importpath = "github.com/chrusty/protoc-gen-jsonschema",
     visibility = ["//visibility:public"],
 )
+
+go_library(
+    name = "go_default_library",
+    srcs = ["cmd/protoc-gen-jsonschema/main.go"],
+    importpath = "github.com/envoyproxy/protoc-gen-validate",
+    visibility = ["//visibility:private"],
+    deps = [],
+)
