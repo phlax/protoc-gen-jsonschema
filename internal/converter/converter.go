@@ -246,8 +246,8 @@ func (c *Converter) generateSchemaFilename(file *descriptor.FileDescriptorProto,
 	if c.PrefixSchemaFilesWithPackage {
 		return fmt.Sprintf("%s/%s.jsonschema", file.GetPackage(), protoName)
 	}
-	fileName := fmt.Sprintf("%s.jsonschema", protoName)
-	c.logger.WithField("package", file.GetPackage()).WithField("proto_filename", fileName).Warn("GENERATE FILENAME")
+	fileName := fmt.Sprintf("%s.jsonschema", file.GetName())
+	c.logger.WithField("proto_filename", fileName).Warn("GENERATE FILENAME")
 	return fileName
 }
 
